@@ -1,3 +1,4 @@
 books_name filter=lfs diff=lfs merge=lfs -text
 artifacts filter=lfs diff=lfs merge=lfs -text
 artifacts/* filter=lfs diff=lfs merge=lfs -text
+datasets/* filter=lfs diff=lfs merge=lfs -text
