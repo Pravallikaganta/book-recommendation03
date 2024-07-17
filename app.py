@@ -1,15 +1,24 @@
 import pickle
 import streamlit as st
 from utils import recommend_books
-
+import os
 
 st.header("Books Recommendation System")
 
-model = pickle.load(open('artifacts/model.pkl','rb'))
-books_name = pickle.load(open('artifacts/books_name.pkl','rb'))
-final_rating = pickle.load(open('artifacts/final_rating.pkl','rb'))
-book_pivot = pickle.load(open('artifacts/book_pivot.pkl','rb'))
+# Define the new directory to save the artifacts
+artifacts_dir = r"C:\Users\prava\model_Deployment_claiments\book-recommendation03\artifacts"
 
+# Define the paths for the pickle files
+model_path = os.path.join(artifacts_dir, 'model.pkl')
+books_name_path = os.path.join(artifacts_dir, 'books_name.pkl')
+final_rating_path = os.path.join(artifacts_dir, 'final_rating.pkl')
+book_pivot_path = os.path.join(artifacts_dir, 'book_pivot.pkl')
+
+# Load the pickle files
+model = pickle.load(open(model_path, 'rb'))
+books_name = pickle.load(open(books_name_path, 'rb'))
+final_rating = pickle.load(open(final_rating_path, 'rb'))
+book_pivot = pickle.load(open(book_pivot_path, 'rb'))
 
 selected_book = st.selectbox("Type or select a book",books_name)
 
